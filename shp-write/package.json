@@ -1,0 +1,54 @@
+{
+  "name": "shp-write",
+  "version": "0.3.2",
+  "description": "write shapefiles from pure javascript",
+  "main": "index.js",
+  "scripts": {
+    "test": "mocha -R spec",
+    "prepublish": "npm run make",
+    "make": "browserify -s shpwrite ./ > shpwrite.js",
+    "make-test": "browserify indexTest.js > shpwrite.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git://github.com/mapbox/shp-write.git"
+  },
+  "files": [
+    "index.js",
+    "src",
+    "shpwrite.js"
+  ],
+  "keywords": [
+    "shapefile",
+    "write",
+    "js"
+  ],
+  "author": "Tom MacWright",
+  "contributors": [
+    {
+      "name": "Nick Baugh",
+      "email": "niftylettuce@gmail.com"
+    }
+  ],
+  "license": "BSD-2-Clause",
+  "bugs": {
+    "url": "https://github.com/mapbox/shp-write/issues"
+  },
+  "dependencies": {
+    "dbf": "0.1.4",
+    "file-saver": "2.0.0",
+    "jszip": "3.1.5"
+  },
+  "devDependencies": {
+    "browserify": "16.2.3",
+    "cz-conventional-changelog": "2.1.0",
+    "eslint": "5.9.0",
+    "expect.js": "0.3.1",
+    "mocha": "5.2.0"
+  },
+  "config": {
+    "commitizen": {
+      "path": "./node_modules/cz-conventional-changelog"
+    }
+  }
+}
