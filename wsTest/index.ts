@@ -7,7 +7,7 @@ wss.on('connection', function connection(ws, req) {
   let urlObj = new URL(req.url!, 'ws://localhost:8080');
   console.log(urlObj);
 
-  let game = urlObj.pathname;
+  let game = urlObj.pathname.replace(/\/+$/, '');
   let priority = urlObj.searchParams;
   console.log('Game: ', game, 'Priority: ', priority.get('priority'));
 
