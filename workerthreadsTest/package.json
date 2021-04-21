@@ -11,5 +11,8 @@
   "license": "ISC",
   "devDependencies": {
     "@types/node": "^14.14.41"
+  },
+  "dependencies": {
+    "moment": "^2.29.1"
   }
 }
