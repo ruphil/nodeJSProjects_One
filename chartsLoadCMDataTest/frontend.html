@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    trading frontend
+    <button onclick="speaktows()">Speak To Websocket</button>
+
+    <script>
+        function speaktows() {
+            console.log('speaking now...');
+            
+            let ws = new WebSocket('ws://localhost:3010');
+            ws.addEventListener('message', (event) => {
+                // console.log(event.data);
+                
+                let responseObj = JSON.parse(Buffer.from(event.data, 'base64').toString());
+                console.log(responseObj);
+                ws.close();
+            });
+            ws.addEventListener('open', (event) => {
+                let msgObj = {
+                    message: 'hi',
+                };
+                ws.send(Buffer.from(JSON.stringify(msgObj)).toString('base64'));
+            });
+        }
+    </script>
+</body>
+</html>
